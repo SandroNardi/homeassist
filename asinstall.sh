@@ -7,4 +7,6 @@ echo "Pulling new image..."
 docker pull home-assistant/home-assistant
 echo "Composing..."
 docker compose up -d
-echo "http://" ifconfig eth0 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' ":8123"
+
+iface=$(ifconfig eth0 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
+echo "http://${iface}:8123"
