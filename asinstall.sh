@@ -1,7 +1,7 @@
 echo "Stopping container..."
 docker stop homeassistant
 echo "Removing old images and container..."
-docker image rm homeassistant
+docker image rm home-assistant/home-assistant
 docker container rm homeassistant
 echo "Pulling new image..."
 docker pull home-assistant/home-assistant
